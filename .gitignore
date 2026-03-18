@@ -55,3 +55,16 @@ desktop.ini
 *.ppt
 *.pptm
 !glucovibes_peak/*.pptx
+
+# Datos privados / NDA
+*.csv
+*.pkl
+*.zip
+*.pt
+*.mp4
+*.xlsx
+**/~BROMIUM/
+glucovibes/data/
+glucovibes/clean_data/
+glucovibes_peak/glucovibes/data/
+glucovibes_peak/glucovibes/clean_data/
