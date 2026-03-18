@@ -1,0 +1,51 @@
+# Entornos virtuales (glucovibes/venv pesa 321MB, glucovibes_peak/venv 317MB)
+venv/
+.venv/
+env/
+glucovibes/venv/
+glucovibes_peak/glucovibes/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Credenciales y API keys (¡CRÍTICO - NO subir nunca!)
+.env
+*.env
+secrets.*
+credentials.*
+*api_key*
+*token*
+
+# Modelos entrenados (PyTorch)
+*.pt
+*.pth
+*.h5
+*.pkl
+outputs/
+*/outputs/
+
+# Archivos ZIP muy grandes (132-140MB cada uno)
+*.zip
+*.tar
+*.tar.gz
+
+# Datos raw / clean data (si son privados de la empresa)
+# Comenta estas líneas si quieres incluir los datos:
+# glucovibes/data/
+# glucovibes/clean_data/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/

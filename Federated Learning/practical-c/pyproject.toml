@@ -1,0 +1,104 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "quickstart-pytorch"
+version = "1.0.1"
+description = "Federated Learning with FashionMNIST and Flower"
+license = "Apache-2.0"
+dependencies = [
+    "flwr[simulation]>=1.26.0",
+    "flwr-datasets[vision]>=0.5.0",
+    "torch==2.8.0",
+    "torchvision==0.23.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.flwr.app]
+publisher = "flwrlabs"
+
+[tool.flwr.app.components]
+serverapp = "pytorchexample.server_app:app"
+clientapp = "pytorchexample.client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 10
+fraction-evaluate = 0.5
+local-epochs = 1
+learning-rate = 0.01
+batch-size = 32
+partitioner-type = "iid"
+alpha = 0.5
+num-classes-per-partition = 2
+
+
+#######################################################################
+# CONFIGURATION MIGRATION NOTICE:
+#
+# What was previously called "federation config" for SuperLink
+# connections in pyproject.toml has been renamed and moved.
+#
+# These settings are now **SuperLink connection configuration**
+# and are defined in the Flower configuration file.
+#
+# The entries below are commented out intentionally and are kept
+# only as a migration reference.
+#
+# Docs: https://flower.ai/docs/framework/ref-flower-configuration.html
+#######################################################################
+
+
+#######################################################################
+# CONFIGURATION MIGRATION NOTICE:
+#
+# What was previously called "federation config" for SuperLink
+# connections in pyproject.toml has been renamed and moved.
+#
+# These settings are now **SuperLink connection configuration**
+# and are defined in the Flower configuration file.
+#
+# The entries below are commented out intentionally and are kept
+# only as a migration reference.
+#
+# Docs: https://flower.ai/docs/framework/ref-flower-configuration.html
+#######################################################################
+
+# [tool.flwr.federations]
+# default = "small-iid"
+
+# [tool.flwr.federations.small-iid]
+# options.num-supernodes = 5
+
+# [tool.flwr.federations.large-iid]
+# options.num-supernodes = 20
+
+# [tool.flwr.federations.small-dirichlet]
+# options.num-supernodes = 5
+
+# [tool.flwr.federations.small-dirichlet.run-config]
+# partitioner-type = "dirichlet"
+# alpha = 0.1
+
+# [tool.flwr.federations.large-dirichlet]
+# options.num-supernodes = 20
+
+# [tool.flwr.federations.large-dirichlet.run-config]
+# partitioner-type = "dirichlet"
+# alpha = 0.1
+
+# [tool.flwr.federations.small-pathological]
+# options.num-supernodes = 5
+
+# [tool.flwr.federations.small-pathological.run-config]
+# partitioner-type = "pathological"
+# num-classes-per-partition = 2
+
+# [tool.flwr.federations.large-pathological]
+# options.num-supernodes = 20
+
+# [tool.flwr.federations.large-pathological.run-config]
+# partitioner-type = "pathological"
+# num-classes-per-partition = 2
