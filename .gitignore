@@ -54,3 +54,4 @@ desktop.ini
 *.pptx
 *.ppt
 *.pptm
+!glucovibes_peak/*.pptx
