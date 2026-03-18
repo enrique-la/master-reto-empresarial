@@ -49,3 +49,8 @@ desktop.ini
 # IDEs
 .vscode/
 .idea/
+
+# Diapositivas y presentaciones
+*.pptx
+*.ppt
+*.pptm
